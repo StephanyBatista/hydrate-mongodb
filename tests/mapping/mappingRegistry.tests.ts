@@ -55,6 +55,12 @@ describe('MappingRegistry', () => {
             assert.equal(fixture.registry.getMappingForConstructor(model.Address), fixture.addressMapping);
         });
 
+        it('returns the mapping for the specified constructor where the registry was done in other file', () => {
+
+            var registry = require('../fixtures/otherFolder/registryInOtherFile');
+            assert.isNotNull(registry.getMappingForConstructor(model.Address));
+        });
+
         it('returns undefined if constructor is not found', () => {
 
             var fixture = createFixture();
